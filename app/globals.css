@@ -1,0 +1,88 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+/*
+shared button styles
+
+here in the CSS you define the padding, rounded corners, borders, casing, tracking etc.
+
+the actual bg color,text color and hover colors are defined within the classes of the actual HTML elements
+ */
+.dark-theme {
+  --bg-header-color: theme('colors.transparent');
+  --link-text: theme('colors.white');
+  --link-text-hover: theme('colors.primary.200');
+  --primary-button-text: theme('colors.white');
+  --primary-button-text-hover: theme('colors.primary.700');
+  --primary-button-border: theme('colors.white');
+  --primary-button-border-hover: theme('colors.white');
+  --primary-button-bg: theme('colors.transparent');
+  --primary-button-bg-hover: theme('colors.white');
+  --header-breadcrumps: theme('colors.white');
+}
+
+.light-theme {
+  --bg-header-color: theme('colors.white');
+  --link-text: theme('colors.secondary.900');
+  --link-text-hover: theme('colors.gray.900');
+  --primary-button-text: theme('colors.white');
+  --primary-button-text-hover: theme('colors.white');
+  --primary-button-border: theme('colors.white');
+  --primary-button-border-hover: theme('colors.white');
+  --primary-button-bg: theme('colors.secondary.600');
+  --primary-button-bg-hover: theme('colors.secondary.700');
+  --header-breadcrumps: theme('colors.secondary.900');
+}
+
+@layer components {
+  .button {
+    @apply cursor-pointer items-center justify-center rounded-sm border-2 border-transparent px-6 py-2 tracking-wider text-base font-semibold shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+/*
+define different button sizes
+button-sm, button-lg, button-xl etc.
+
+you can change the size of the button per breakpoint
+class="button button-sm md:button-base xl:button-xl"
+*/
+  .button-base {
+    @apply text-base;
+  }
+
+  .button-xs {
+    @apply px-3 py-1 text-xs;
+  }
+
+  .button-sm {
+    @apply px-4 py-1.5 text-sm;
+  }
+
+  .button-lg {
+    @apply px-6 py-2 text-lg;
+  }
+
+  .button-xl {
+    @apply px-7 py-2.5 text-xl;
+  }
+
+  .button-2xl {
+    @apply px-8 py-2.5 text-2xl;
+  }
+}
+
+@tailwind utilities;
+
+
+.pattern-secondary {
+  background-size: 4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 114 97' fill='%23a866e5' fill-opacity='0.35'%3E%3Cpolygon points='110.52 68.71 97.83 68.71 97.83 75.12 110.52 75.12 110.52 93.52 103.83 93.52 92.12 93.52 92.12 80.83 85.71 80.83 85.71 93.52 71.81 93.52 71.81 97 103.83 97 110.52 97 110.52 97 114 97 114 93.52 114 86.83 114 54.81 110.52 54.81 110.52 68.71'/%3E%3Cpolygon points='28.29 80.83 21.88 80.83 21.88 93.52 10.17 93.52 3.48 93.52 3.48 86.83 3.48 75.12 16.17 75.12 16.17 68.71 3.48 68.71 3.48 54.81 0 54.81 0 86.83 0 93.52 0 97 3.48 97 10.17 97 42.19 97 42.19 93.52 28.29 93.52 28.29 80.83'/%3E%3Cpolygon points='110.52 0 110.52 0 103.83 0 71.81 0 71.81 3.48 85.71 3.48 85.71 16.17 92.12 16.17 92.12 3.48 103.83 3.48 110.52 3.48 110.52 10.17 110.52 10.17 110.52 21.88 97.83 21.88 97.83 28.29 110.52 28.29 110.52 42.19 114 42.19 114 10.17 114 3.48 114 0 110.52 0'/%3E%3Cpolygon points='73.17 70.38 60.48 70.38 60.48 58.67 60.48 51.98 67.17 51.98 78.88 51.98 78.88 64.67 85.29 64.67 85.29 51.98 99.19 51.98 99.19 45.02 85.29 45.02 85.29 32.33 78.88 32.33 78.88 45.02 67.17 45.02 60.48 45.02 60.48 38.33 60.48 26.62 73.17 26.62 73.17 20.21 60.48 20.21 60.48 6.31 53.52 6.31 53.52 20.21 40.83 20.21 40.83 26.62 53.52 26.62 53.52 45.02 46.83 45.02 35.12 45.02 35.12 32.33 28.71 32.33 28.71 45.02 14.81 45.02 14.81 51.98 28.71 51.98 28.71 64.67 35.12 64.67 35.12 51.98 46.83 51.98 53.52 51.98 53.52 58.67 53.52 58.67 53.52 70.38 40.83 70.38 40.83 76.79 53.52 76.79 53.52 90.69 60.48 90.69 60.48 76.79 73.17 76.79 73.17 70.38'/%3E%3Cpolygon points='3.48 28.29 16.17 28.29 16.17 21.88 3.48 21.88 3.48 10.17 3.48 3.48 10.17 3.48 21.88 3.48 21.88 16.17 28.29 16.17 28.29 3.48 42.19 3.48 42.19 0 10.17 0 3.48 0 0 0 0 3.48 0 10.17 0 42.19 3.48 42.19 3.48 28.29'/%3E%3C/svg%3E");
+}
+
+.pattern-primary {
+  background-size: 4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 114 97' fill='%23eab308' fill-opacity='1'%3E%3Cpolygon points='110.52 68.71 97.83 68.71 97.83 75.12 110.52 75.12 110.52 93.52 103.83 93.52 92.12 93.52 92.12 80.83 85.71 80.83 85.71 93.52 71.81 93.52 71.81 97 103.83 97 110.52 97 110.52 97 114 97 114 93.52 114 86.83 114 54.81 110.52 54.81 110.52 68.71'/%3E%3Cpolygon points='28.29 80.83 21.88 80.83 21.88 93.52 10.17 93.52 3.48 93.52 3.48 86.83 3.48 75.12 16.17 75.12 16.17 68.71 3.48 68.71 3.48 54.81 0 54.81 0 86.83 0 93.52 0 97 3.48 97 10.17 97 42.19 97 42.19 93.52 28.29 93.52 28.29 80.83'/%3E%3Cpolygon points='110.52 0 110.52 0 103.83 0 71.81 0 71.81 3.48 85.71 3.48 85.71 16.17 92.12 16.17 92.12 3.48 103.83 3.48 110.52 3.48 110.52 10.17 110.52 10.17 110.52 21.88 97.83 21.88 97.83 28.29 110.52 28.29 110.52 42.19 114 42.19 114 10.17 114 3.48 114 0 110.52 0'/%3E%3Cpolygon points='73.17 70.38 60.48 70.38 60.48 58.67 60.48 51.98 67.17 51.98 78.88 51.98 78.88 64.67 85.29 64.67 85.29 51.98 99.19 51.98 99.19 45.02 85.29 45.02 85.29 32.33 78.88 32.33 78.88 45.02 67.17 45.02 60.48 45.02 60.48 38.33 60.48 26.62 73.17 26.62 73.17 20.21 60.48 20.21 60.48 6.31 53.52 6.31 53.52 20.21 40.83 20.21 40.83 26.62 53.52 26.62 53.52 45.02 46.83 45.02 35.12 45.02 35.12 32.33 28.71 32.33 28.71 45.02 14.81 45.02 14.81 51.98 28.71 51.98 28.71 64.67 35.12 64.67 35.12 51.98 46.83 51.98 53.52 51.98 53.52 58.67 53.52 58.67 53.52 70.38 40.83 70.38 40.83 76.79 53.52 76.79 53.52 90.69 60.48 90.69 60.48 76.79 73.17 76.79 73.17 70.38'/%3E%3Cpolygon points='3.48 28.29 16.17 28.29 16.17 21.88 3.48 21.88 3.48 10.17 3.48 3.48 10.17 3.48 21.88 3.48 21.88 16.17 28.29 16.17 28.29 3.48 42.19 3.48 42.19 0 10.17 0 3.48 0 0 0 0 3.48 0 10.17 0 42.19 3.48 42.19 3.48 28.29'/%3E%3C/svg%3E");
+}
